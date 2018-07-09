@@ -8,8 +8,8 @@ export default class HomeScene extends Component<Props>{
     }
 
     render(){
-        return (<View>
-            <Text style={styles.welcome}>HomeScene</Text>
+        return (<View style={styles.container}>
+            <Text style={styles.text}>HomeScene</Text>
         </View>);
     }
 }
@@ -21,14 +21,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    welcome: {
+    text: {
         fontSize: 20,
         textAlign: 'center',
+        color:'#333333',
         margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+    }
 });

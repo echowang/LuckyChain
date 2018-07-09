@@ -11,7 +11,7 @@ import React, {Component} from 'react';
 import {StatusBar} from 'react-native'
 import {createStackNavigator, createBottomTabNavigator} from 'react-navigation'
 
-import color from './src/widget/color'
+import color from './src/comment/color'
 import TabBarItem from './src/widget/TabBarItem'
 
 import HomeScene from './src/scene/HomeScene'
@@ -39,7 +39,7 @@ const Tab = createBottomTabNavigator({
     Home: {
         screen: HomeScene,
         navigationOptions: {
-            tabBarLabel: '团购',
+            tabBarLabel: '首页',
             tabBarIcon: ({focused, tintColor}) => (
                 <TabBarItem
                     tintColor={tintColor}
@@ -53,7 +53,7 @@ const Tab = createBottomTabNavigator({
     Nearby: {
         screen: NearbyScene,
         navigationOptions: {
-            tabBarLabel: '附近',
+            tabBarLabel: '大厅',
             tabBarIcon: ({focused, tintColor}) => (
                 <TabBarItem
                     tintColor={tintColor}
@@ -68,7 +68,7 @@ const Tab = createBottomTabNavigator({
     Order: {
         screen: OrderScene,
         navigationOptions: {
-            tabBarLabel: '订单',
+            tabBarLabel: '消息',
             tabBarIcon: ({focused, tintColor}) => (
                 <TabBarItem
                     tintColor={tintColor}

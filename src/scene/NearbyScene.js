@@ -8,8 +8,23 @@ export default class NearbyScene extends Component<Props>{
     }
 
     render(){
-        return (<View>
-            <Text style={{fontSize:20}}>NearbyScene</Text>
+        return (<View style={styles.container}>
+            <Text style={styles.text}>NearbyScene</Text>
         </View>);
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    text: {
+        fontSize: 20,
+        textAlign: 'center',
+        color:'#333333',
+        margin: 10,
+    }
+});
