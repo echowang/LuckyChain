@@ -1,11 +1,26 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, FlatList, View} from 'react-native';
 
 import CoinView from '../widget/CoinView'
 import ListItemView from '../widget/ListItemView'
+import TabBarItem from '../widget/TabBarItem'
+
+import Config from '../comment/config'
 
 type Props = {};
 export default class MineScene extends Component<Props>{
+    static navigationOptions = {
+        tabBarLabel: '我的',
+        tabBarIcon: ({focused, tintColor}) => (
+            <TabBarItem
+            tintColor={tintColor}
+            focused={focused}
+            normalImage={require('../img/tabbar/tabbar_mine.png')}
+            selectedImage={require('../img/tabbar/tabbar_mine_selected.png')}
+            />
+        )
+    };
+
     constructor(){
         super()
     }
@@ -20,22 +35,23 @@ export default class MineScene extends Component<Props>{
                     <CoinView coin="5.24" coinDesc="挖矿奖励" coinUnit="BTC"/>
                 </View>
                 <View style={styles.listContainer}>
-                    <ListItemView icon={require('../img/mine/icon_mine_member.png')} title="我的钱包"/>
-                    <ListItemView icon={require('../img/mine/icon_mine_balance.png')} title="我的投注"/>
-                    <ListItemView icon={require('../img/mine/icon_mine_friends.png')} title="我的邀请"/>
-                    <ListItemView icon={require('../img/mine/icon_mine_customerService.png')} title="关于我们"/>
-                    <ListItemView icon={require('../img/mine/icon_mine_aboutmeituan.png')} title="问题反馈"/>
+                    <FlatList
+                        data={Config.menuInfo}
+                        renderItem={this._listItem}
+                        keyExtractor={this._keyExtractor}
+                    />
                 </View>
             </View>
             );
     }
+
+    _listItem = ({item}) => (<ListItemView icon={item.icon} title={item.title}/>);
+    _keyExtractor = (item, index) => item.id;
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'flex-start',
-        backgroundColor: '#F5FCFF',
     },
     coinContainer: {
         justifyContent: 'center',
@@ -45,7 +61,6 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         flex: 1,
-        alignItems: 'flex-start',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'yellow',
     }
 });

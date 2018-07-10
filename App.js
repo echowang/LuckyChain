@@ -12,7 +12,6 @@ import {StatusBar} from 'react-native'
 import {createStackNavigator, createBottomTabNavigator} from 'react-navigation'
 
 import color from './src/comment/color'
-import TabBarItem from './src/widget/TabBarItem'
 
 import HomeScene from './src/scene/HomeScene'
 import NearbyScene from './src/scene/NearbyScene'
@@ -38,68 +37,24 @@ export default class App extends Component<Props> {
 const Tab = createBottomTabNavigator({
     Home: {
         screen: HomeScene,
-        navigationOptions: {
-            tabBarLabel: '首页',
-            tabBarIcon: ({focused, tintColor}) => (
-                <TabBarItem
-                    tintColor={tintColor}
-                    focused={focused}
-                    normalImage={require('./src/img/tabbar/tabbar_homepage.png')}
-                    selectedImage={require('./src/img/tabbar/tabbar_homepage_selected.png')}
-                />
-            )
-        },
     },
     Nearby: {
         screen: NearbyScene,
-        navigationOptions: {
-            tabBarLabel: '大厅',
-            tabBarIcon: ({focused, tintColor}) => (
-                <TabBarItem
-                    tintColor={tintColor}
-                    focused={focused}
-                    normalImage={require('./src/img/tabbar/tabbar_merchant.png')}
-                    selectedImage={require('./src/img/tabbar/tabbar_merchant_selected.png')}
-                />
-            )
-        },
     },
 
     Order: {
         screen: OrderScene,
-        navigationOptions: {
-            tabBarLabel: '消息',
-            tabBarIcon: ({focused, tintColor}) => (
-                <TabBarItem
-                    tintColor={tintColor}
-                    focused={focused}
-                    normalImage={require('./src/img/tabbar/tabbar_order.png')}
-                    selectedImage={require('./src/img/tabbar/tabbar_order_selected.png')}
-                />
-            )
-        },
     },
 
     Mine: {
         screen: MineScene,
-        navigationOptions: {
-            tabBarLabel: '我的',
-            tabBarIcon: ({focused, tintColor}) => (
-                <TabBarItem
-                    tintColor={tintColor}
-                    focused={focused}
-                    normalImage={require('./src/img/tabbar/tabbar_mine.png')}
-                    selectedImage={require('./src/img/tabbar/tabbar_mine_selected.png')}
-                />
-            )
-        },
     },
 },{
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
         tabBarOptions: {
-        activeTintColor: color.primary,
+            activeTintColor: color.primary,
             inactiveTintColor: color.gray,
             style: {backgroundColor: '#ffffff'},
     },
@@ -109,12 +64,4 @@ const Navigator = createStackNavigator(
     {
         Tab: {screen: Tab},
     },
-    {
-      navigationOptions: {
-          title:"LuckyChain",
-          headerStyle: { backgroundColor: color.primary},
-          headerBackTitle: null,
-          headerTintColor: '#333333',
-          showIcon: true
-      },
-    })
+)

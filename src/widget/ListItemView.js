@@ -16,7 +16,7 @@ export default class ListItemView extends Component<Props>{
         return (
             <View style={styles.container}>
                 <Image source={this.props.icon}/>
-                <Text style={styles.titleStyle}>{this.props.title}</Text>>
+                <Text style={styles.titleStyle}>{this.props.title}</Text>
             </View>
         )
     }
@@ -26,13 +26,12 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         flexDirection:'row',
-        alignItems: 'center',
-        backgroundColor: '#666666',
+        backgroundColor: 'yellow',
     },
     titleStyle:{
         fontSize: 20,
         textAlign: 'center',
-        color:'#e6e6e6',
+        color:'#333333',
         padding:10
     }
 })
